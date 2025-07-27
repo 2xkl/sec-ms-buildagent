@@ -1,0 +1,12 @@
+- name: Test SSH connection to Ubuntu container
+  hosts: azureagents
+  tasks:
+    - name: Check connectivity
+      ping:
+
+    - name: Run command on remote host
+      command: whoami
+      register: result
+
+    - debug:
+        msg: "I am: {{ result.stdout }}"
